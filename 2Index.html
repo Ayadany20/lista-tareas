@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #contador {
+            font-weight: bold;
+            color: #0077cc;
+        }
+
+        #lista-tareas {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 250px;
+        }
+
+        #lista-tareas li {
+            background-color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #0077cc;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Título principal -->
+    <h1>Lista de Tareas</h1>
+
+    <!-- Contador de tareas -->
+    <p>Tareas agregadas: <span id="contador">0</span></p>
+
+    <!-- Contenedor de la lista -->
+    <ul id="lista-tareas"></ul>
+
+    <!-- Botón para agregar nuevas tareas -->
+    <button onclick="agregarTarea()">Agregar Tarea</button>
+
+    <script>
+        // Variable global para llevar el conteo de las tareas
+        let contador = 0;
+
+        // Función que se ejecuta cada vez que se hace clic en el botón
+        function agregarTarea() {
+            // Incrementamos el contador en 1
+            contador++;
+
+            // Creamos un nuevo elemento <li>
+            let nuevaTarea = document.createElement("li");
+
+            // Asignamos el texto: "Tarea" seguido del número actual
+            nuevaTarea.textContent = "Tarea " + contador;
+
+            // Obtenemos el contenedor de la lista por su ID
+            let lista = document.getElementById("lista-tareas");
+
+            // Agregamos el nuevo <li> a la lista
+            lista.appendChild(nuevaTarea);
+
+            // Obtenemos el <span> del contador
+            let spanContador = document.getElementById("contador");
+
+            // Actualizamos el texto del contador en pantalla
+            spanContador.textContent = contador;
+        }
+    </script>
+</body>
+</html>
